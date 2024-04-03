@@ -25,13 +25,14 @@ class ListAdapter(
         return charList.size
     }
 
-    class ViewHolder(private val binding: CardItemBinding) :
+    inner class ViewHolder(private val binding: CardItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Card) {
             binding.tvName.text = item.name
             binding.tvStatus.text = item.status
             //здесь должен был быть Glide но у меня он тупо не скачался
-//           itemView.setOnClickListener { onClick.invoke(item) }
+           itemView.setOnClickListener {
+               onClick.invoke(item) }
         }
     }
 }
